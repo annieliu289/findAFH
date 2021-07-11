@@ -1,0 +1,7 @@
+include: package:lint/analysis_options.yaml
+
+linter:
+  rules:
+    file_names: false
+
+    sort_pub_dependencies: false
