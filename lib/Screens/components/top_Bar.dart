@@ -5,9 +5,12 @@ import 'package:find_afh/constants.dart';
 class TopBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+
     return SafeArea(
-      child: FractionallySizedBox(
-        widthFactor: 0.85,
+      child: Container(
+        //alignment: Alignment.center,
+        width: mediaQuery.size.width * 0.85,
         child: Container(
           height: 125,
           decoration: BoxDecoration(
