@@ -44,7 +44,7 @@ class TopBar extends StatelessWidget {
                   ),
                   child: const Text(
                     'How it works',
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 25),
                   ),
                 ),
               ),
@@ -56,7 +56,7 @@ class TopBar extends StatelessWidget {
                   ),
                   child: const Text(
                     'Why Adult Family Homes?',
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 25),
                   ),
                 ),
               ),
@@ -68,7 +68,7 @@ class TopBar extends StatelessWidget {
                   ),
                   child: const Text(
                     'List a Home',
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 25),
                   ),
                 ),
               ),
@@ -86,7 +86,7 @@ class TopBar extends StatelessWidget {
                           )),
                       child: const Text(
                         'Create an Account',
-                        style: TextStyle(fontSize: 20),
+                        style: TextStyle(fontSize: 25),
                       ),
                     ),
                   ),

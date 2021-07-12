@@ -1,7 +1,7 @@
 import 'package:find_afh/constants.dart';
 import 'package:flutter/material.dart';
 
-import 'Screens/Home/home_screen.dart';
+import 'Screens/home_screen.dart';
 
 void main() {
   runApp(FindAFH());

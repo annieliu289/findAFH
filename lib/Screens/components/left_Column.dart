@@ -1,7 +1,23 @@
+import 'package:find_afh/Screens/listings_map_screen.dart';
 import 'package:find_afh/constants.dart';
 import 'package:flutter/material.dart';
 
-class LeftColumn extends StatelessWidget {
+import 'package:find_afh/city_dropdown.dart';
+
+class LeftColumn extends StatefulWidget {
+  @override
+  _LeftColumnState createState() => _LeftColumnState();
+}
+
+class _LeftColumnState extends State<LeftColumn> {
+  String dropdownValue = 'Vancouver, WA';
+
+  void selectCity(BuildContext ctx) {
+    Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
+      return ListingsMapScreen(dropdownValue);
+    }));
+  }
+
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
@@ -34,26 +50,26 @@ class LeftColumn extends StatelessWidget {
                 width: mediaQuery.size.width * 0.3,
                 padding: EdgeInsets.only(left: mediaQuery.size.width * .15),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () => {
+                    selectCity(context),
+                  },
                   style: ElevatedButton.styleFrom(
                       primary: kPrimaryColor,
-                      alignment: Alignment.centerRight,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(0),
                       )),
-                  child: Center(
-                    child: Row(
-                      children: [
-                        IconButton(
-                          icon: const Icon(Icons.search),
-                          onPressed: () {},
-                        ),
-                        const Text(
-                          'Find Homes',
-                          textAlign: TextAlign.end,
-                        ),
-                      ],
-                    ),
+                  child: Row(
+                    children: [
+                      IconButton(
+                        icon: const Icon(Icons.search),
+                        onPressed: () {},
+                      ),
+                      const Text(
+                        'Find Homes',
+                        textAlign: TextAlign.end,
+                        style: TextStyle(fontSize: 24),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -87,52 +103,6 @@ class LeftColumn extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-class CityDropdownWidget extends StatefulWidget {
-  @override
-  _CityDropdownWidgetState createState() => _CityDropdownWidgetState();
-}
-
-class _CityDropdownWidgetState extends State<CityDropdownWidget> {
-  String dropdownValue = 'Vancouver, WA';
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(0),
-          color: Colors.white,
-          border: Border.all(
-            color: kPrimaryColor,
-          )),
-      child: DropdownButton<String>(
-        value: dropdownValue,
-        icon: const Icon(Icons.arrow_drop_down),
-        iconSize: 42,
-        elevation: 16,
-        style: const TextStyle(color: kPrimaryColor),
-        underline: SizedBox(),
-        onChanged: (String? newValue) {
-          setState(() {
-            dropdownValue = newValue!;
-          });
-        },
-        // Just Vancouver for now, but in future we could add other cities
-        items: <String>['Vancouver, WA']
-            .map<DropdownMenuItem<String>>((String value) {
-          return DropdownMenuItem<String>(
-            value: value,
-            child: Text(
-              value,
-              style: TextStyle(fontSize: 25),
-            ),
-          );
-        }).toList(),
-      ),
     );
   }
 }
