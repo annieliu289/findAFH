@@ -1,0 +1,74 @@
+//After Second positioned
+// Container(
+//               child: Row(
+//                 children: [
+//                   Expanded(
+//                     child: Card(
+//                       child: ListView(
+//                         //mainAxisAlignment: MainAxisAlignment.spaceAround,
+//                         //crossAxisAlignment: CrossAxisAlignment.center,
+//                         children: homeListings.map((ls) {
+//                           return Container(
+//                             //color: Colors.yellow,
+//                             width: double.infinity,
+//                             child: Card(
+//                               child: Row(
+//                                 children: [
+//                                   Container(
+//                                       margin: EdgeInsets.all(15.0),
+//                                       child: Image.asset(ls.image)),
+//                                   Container(
+//                                     color: Colors.yellow,
+//                                     //width: double.infinity,
+//                                     height: 150.0,
+//                                     //alignment: ,
+//                                     //margin: EdgeInsets.all(20),
+//                                     //alignment: Alignment.center,
+//                                     child: Column(
+//                                       crossAxisAlignment:
+//                                           CrossAxisAlignment.start,
+//                                       children: [
+//                                         Text(
+//                                           ls.name,
+//                                           style: TextStyle(
+//                                               fontSize: 40.0,
+//                                               fontWeight: FontWeight.bold),
+//                                           //textAlign: TextAlign.center,
+//                                         ),
+//                                         Text(
+//                                           ls.address,
+//                                           style: TextStyle(fontSize: 20.0),
+//                                         ),
+//                                         Text(
+//                                           ls.availableBeds.toString() +
+//                                               ' available beds',
+//                                           style: TextStyle(
+//                                               fontSize: 15.0,
+//                                               fontWeight: FontWeight.bold),
+//                                         ),
+//                                         Text(
+//                                           'Contact: ' + ls.contact.toString(),
+//                                           style: TextStyle(
+//                                               fontSize: 15.0,
+//                                               fontWeight: FontWeight.bold),
+//                                         ),
+//                                         Text(
+//                                           ls.rating,
+//                                           style: TextStyle(
+//                                               fontSize: 15.0,
+//                                               fontWeight: FontWeight.bold),
+//                                         )
+//                                       ],
+//                                     ),
+//                                   )
+//                                 ],
+//                               ),
+//                             ),
+//                           );
+//                         }).toList(),
+//                       ),
+//                     ),
+//                   ),
+//                 ],
+//               ),
+//             ),
