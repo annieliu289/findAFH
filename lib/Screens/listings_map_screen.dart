@@ -17,7 +17,7 @@ class ListingsMapScreen extends StatelessWidget {
       address: '10800 NE 109th Ave',
       rating: '5/5',
       contact: 5716659250,
-      image: 'assets/images/afhStockImage.jpeg',
+      image: 'assets/images/resurrectionAFH.jpg',
       availableBeds: 1,
     ),
     Listing(
@@ -26,7 +26,7 @@ class ListingsMapScreen extends StatelessWidget {
       address: '14016 NE 35th Circle, Vancouver, WA 98682',
       rating: '5/5',
       contact: 3609103450,
-      image: 'assets/images/afhStockImage.jpeg',
+      image: 'assets/images/camasLilyAFH.jpg',
       availableBeds: 2,
     ),
     Listing(
@@ -35,7 +35,7 @@ class ListingsMapScreen extends StatelessWidget {
       address: '14731 NE 11th Street, Vancouver, WA 98684',
       rating: '5/5',
       contact: 3605139667,
-      image: 'assets/images/afhStockImage.jpeg',
+      image: 'assets/images/firstplaceAFH.jpeg',
       availableBeds: 6,
     ),
     Listing(
@@ -142,6 +142,7 @@ class ListingsMapScreen extends StatelessWidget {
                                                   Container(
                                                       margin:
                                                           EdgeInsets.all(5.0),
+                                                      width: 270,
                                                       child: Image.asset(
                                                           ls.image)),
                                                   Container(
