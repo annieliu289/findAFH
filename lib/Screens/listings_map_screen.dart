@@ -59,176 +59,180 @@ class ListingsMapScreen extends StatelessWidget {
         children: [
           Container(
               margin: EdgeInsets.fromLTRB(100, 50, 100, 0), child: TopBar()),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Expanded(
-                child: Container(
-                  margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
-                  child: Column(
-                    //crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      //LeftColumn(),
-                      Container(
-                        padding: EdgeInsets.fromLTRB(0, 0, 625, 20),
-                        child: Text(
-                          'Location',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            color: kPrimaryColor,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 25,
+          Container(
+            height: mediaQuery.size.height * 0.8,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  child: Container(
+                    margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
+                    child: Column(
+                      //crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        //LeftColumn(),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(0, 0, 625, 20),
+                          child: Text(
+                            'Location',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              color: kPrimaryColor,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 25,
+                            ),
                           ),
                         ),
-                      ),
-                      Container(
-                          height: 70,
-                          width: mediaQuery.size.width * 0.4,
-                          child: Stack(
-                            children: [
-                              Container(
-                                height: 50,
-                                width: mediaQuery.size.width * 0.3,
-                                child: CityDropdownWidget(),
-                              ),
-                              Container(
-                                height: 50,
-                                width: mediaQuery.size.width * 0.3,
-                                padding: EdgeInsets.only(
-                                    left: mediaQuery.size.width * .15),
-                                child: ElevatedButton(
-                                  onPressed: () => {},
-                                  style: ElevatedButton.styleFrom(
-                                      primary: kPrimaryColor,
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(0),
-                                      )),
-                                  child: Row(
-                                    children: [
-                                      IconButton(
-                                        icon: const Icon(Icons.search),
-                                        onPressed: () {},
-                                      ),
-                                      const Text(
-                                        'Find Homes',
-                                        textAlign: TextAlign.end,
-                                        style: TextStyle(fontSize: 24),
-                                      ),
-                                    ],
+                        Container(
+                            height: 70,
+                            width: mediaQuery.size.width * 0.4,
+                            child: Stack(
+                              children: [
+                                Container(
+                                  height: 50,
+                                  width: mediaQuery.size.width * 0.3,
+                                  child: CityDropdownWidget(),
+                                ),
+                                Container(
+                                  height: 50,
+                                  width: mediaQuery.size.width * 0.3,
+                                  padding: EdgeInsets.only(
+                                      left: mediaQuery.size.width * .15),
+                                  child: ElevatedButton(
+                                    onPressed: () => {},
+                                    style: ElevatedButton.styleFrom(
+                                        primary: kPrimaryColor,
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(0),
+                                        )),
+                                    child: Row(
+                                      children: [
+                                        IconButton(
+                                          icon: const Icon(Icons.search),
+                                          onPressed: () {},
+                                        ),
+                                        const Text(
+                                          'Find Homes',
+                                          textAlign: TextAlign.end,
+                                          style: TextStyle(fontSize: 24),
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          )),
-                      // mapping homes from data to widgets
-                      Container(
-                        margin: EdgeInsets.fromLTRB(70, 0, 0, 0),
-                        constraints: BoxConstraints.loose(Size.square(1200)),
-                        child: Container(
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Card(
-                                  child: Container(
-                                    height: 670,
-                                    child: SingleChildScrollView(
-                                      child: Column(
-                                        children: homeListings.map((ls) {
-                                          return Container(
-                                            width: double.infinity,
-                                            child: Card(
-                                              child: Row(
-                                                children: [
-                                                  Container(
-                                                      margin:
-                                                          EdgeInsets.all(5.0),
-                                                      width: 270,
-                                                      child: Image.asset(
-                                                          ls.image)),
-                                                  Container(
-                                                    height: 150.0,
-                                                    child: Column(
-                                                      crossAxisAlignment:
-                                                          CrossAxisAlignment
-                                                              .start,
-                                                      children: [
-                                                        Text(
-                                                          ls.name,
-                                                          style: TextStyle(
-                                                              fontSize: 35.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                        Text(
-                                                          ls.address,
-                                                          style: TextStyle(
-                                                              fontSize: 20.0),
-                                                        ),
-                                                        Text(
-                                                          ls.availableBeds
-                                                                  .toString() +
-                                                              ' available beds',
-                                                          style: TextStyle(
-                                                              fontSize: 15.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                        Text(
-                                                          'Contact: ' +
-                                                              ls.contact
-                                                                  .toString(),
-                                                          style: TextStyle(
-                                                              fontSize: 15.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        ),
-                                                        Text(
-                                                          'Rating: ' +
-                                                              ls.rating,
-                                                          style: TextStyle(
-                                                              fontSize: 15.0,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold),
-                                                        )
-                                                      ],
-                                                    ),
-                                                  )
-                                                ],
+                              ],
+                            )),
+                        // mapping homes from data to widgets
+                        Container(
+                          margin: EdgeInsets.fromLTRB(70, 0, 0, 0),
+                          constraints: BoxConstraints.loose(Size.square(1200)),
+                          child: Container(
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Card(
+                                    child: Container(
+                                      height: mediaQuery.size.height * 0.63,
+                                      child: SingleChildScrollView(
+                                        child: Column(
+                                          children: homeListings.map((ls) {
+                                            return Container(
+                                              width: double.infinity,
+                                              child: Card(
+                                                child: Row(
+                                                  children: [
+                                                    Container(
+                                                        margin:
+                                                            EdgeInsets.all(5.0),
+                                                        width: 270,
+                                                        child: Image.asset(
+                                                            ls.image)),
+                                                    Container(
+                                                      height: 150.0,
+                                                      child: Column(
+                                                        crossAxisAlignment:
+                                                            CrossAxisAlignment
+                                                                .start,
+                                                        children: [
+                                                          Text(
+                                                            ls.name,
+                                                            style: TextStyle(
+                                                                fontSize: 35.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold),
+                                                          ),
+                                                          Text(
+                                                            ls.address,
+                                                            style: TextStyle(
+                                                                fontSize: 20.0),
+                                                          ),
+                                                          Text(
+                                                            ls.availableBeds
+                                                                    .toString() +
+                                                                ' available beds',
+                                                            style: TextStyle(
+                                                                fontSize: 15.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold),
+                                                          ),
+                                                          Text(
+                                                            'Contact: ' +
+                                                                ls.contact
+                                                                    .toString(),
+                                                            style: TextStyle(
+                                                                fontSize: 15.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold),
+                                                          ),
+                                                          Text(
+                                                            'Rating: ' +
+                                                                ls.rating,
+                                                            style: TextStyle(
+                                                                fontSize: 15.0,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold),
+                                                          )
+                                                        ],
+                                                      ),
+                                                    )
+                                                  ],
+                                                ),
                                               ),
-                                            ),
-                                          );
-                                        }).toList(),
+                                            );
+                                          }).toList(),
+                                        ),
                                       ),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                    child: Container(
+                  constraints: BoxConstraints.tight(Size(800, 800)),
+                  margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
+                  child: Column(
+                    children: [
+                      Text('This is where the Map View will be:'),
+                      Placeholder(
+                        fallbackHeight: mediaQuery.size.height * .75,
                       ),
                     ],
                   ),
-                ),
-              ),
-              Expanded(
-                  child: Container(
-                constraints: BoxConstraints.tight(Size(800, 800)),
-                margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
-                child: Column(
-                  children: [
-                    Text('This is where the Map View will be:'),
-                    Placeholder(
-                      fallbackHeight: mediaQuery.size.height * .75,
-                    ),
-                  ],
-                ),
-              )),
-            ],
+                )),
+              ],
+            ),
           ),
         ],
       ),
