@@ -1,5 +1,6 @@
 import 'package:find_afh/Screens/components/left_Column.dart';
 import 'package:find_afh/Screens/components/right_Column.dart';
+import 'package:find_afh/Screens/components/testimonials.dart';
 import 'package:find_afh/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -31,12 +32,20 @@ class HomeScreen extends StatelessWidget {
             left: 500,
             right: 100,
             child: RightColumn(),
+          ),
+          Positioned(
+            top: 1100,
+            left: 0,
+            right: 0,
+            child: Testimonials(),
           )
         ],
       ),
     );
   }
 }
+
+
 
 //An alternative way of splitting the screens
 // Row(
