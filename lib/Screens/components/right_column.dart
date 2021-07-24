@@ -6,10 +6,10 @@ class RightColumn extends StatelessWidget {
     final mediaQuery = MediaQuery.of(context);
     return Container(
       //color: Colors.yellow,
-      height: 2000,
+      //height: 2000,
       //mediaQuery.size.width * 0.4
       alignment: Alignment.topLeft,
-      padding: const EdgeInsets.fromLTRB(400, 0, 0, 1200),
+      padding: const EdgeInsets.fromLTRB(20, 50, 0, 0),
       //margin: EdgeInsets.all(50),
       child: Image.asset(
         'assets/images/illustration.png',

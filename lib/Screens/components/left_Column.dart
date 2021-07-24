@@ -22,17 +22,20 @@ class _LeftColumnState extends State<LeftColumn> {
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        const Padding(
-          padding: EdgeInsets.only(bottom: 20),
+        SizedBox(
+          height: 60,
+        ),
+        Container(
+          padding: EdgeInsets.fromLTRB(100, 0, 625, 20),
           child: Text(
             'Location',
+            textAlign: TextAlign.left,
             style: TextStyle(
               color: kPrimaryColor,
               fontWeight: FontWeight.bold,
-              fontSize: 25,
+              fontSize: 35,
             ),
           ),
         ),
@@ -43,12 +46,13 @@ class _LeftColumnState extends State<LeftColumn> {
               Container(
                 height: 50,
                 width: mediaQuery.size.width * 0.3,
+                padding: EdgeInsets.fromLTRB(30, 0, 0, 0),
                 child: CityDropdownWidget(),
               ),
               Container(
                 height: 50,
                 width: mediaQuery.size.width * 0.3,
-                padding: EdgeInsets.only(left: mediaQuery.size.width * .15),
+                padding: EdgeInsets.fromLTRB(290, 0, 0, 0),
                 child: ElevatedButton(
                   onPressed: () => {
                     selectCity(context),
@@ -60,6 +64,9 @@ class _LeftColumnState extends State<LeftColumn> {
                       )),
                   child: Row(
                     children: [
+                      SizedBox(
+                        width: 25,
+                      ),
                       IconButton(
                         icon: const Icon(Icons.search),
                         onPressed: () {},
@@ -74,10 +81,9 @@ class _LeftColumnState extends State<LeftColumn> {
                 ),
               ),
               Container(
-                width: mediaQuery.size.width * 0.29,
-                padding: EdgeInsets.only(
-                  top: mediaQuery.size.height * 0.12,
-                ),
+                width: mediaQuery.size.width * 0.35,
+                padding: EdgeInsets.fromLTRB(
+                    30, mediaQuery.size.height * 0.12, 0, 0),
                 child: Column(
                   children: [
                     Text(
@@ -89,11 +95,11 @@ class _LeftColumnState extends State<LeftColumn> {
                       ),
                     ),
                     SizedBox(
-                      height: 20,
+                      height: mediaQuery.size.height * 0.08,
                     ),
                     Icon(
                       IconData(0xe796, fontFamily: 'MaterialIcons'),
-                      size: 100,
+                      size: 150,
                       color: kPrimaryColor,
                     ),
                   ],
