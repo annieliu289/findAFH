@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   material_floating_search_bar: ^0.3.4
+  google_maps: ^5.1.0 
 
 
   # The following adds the Cupertino Icons font to your application.

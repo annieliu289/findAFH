@@ -1,54 +1,21 @@
-import 'package:find_afh/Screens/components/left_Column.dart';
-import 'package:find_afh/city_dropdown.dart';
 import 'package:flutter/material.dart';
 
-import '../Models/listing.dart';
+import './components/maps.dart';
 import './components/top_Bar.dart';
+import '../city_dropdown.dart';
 import '../constants.dart';
+import '../Data/dummy_data.dart';
+import '../widgets/map_listing.dart';
 
-class ListingsMapScreen extends StatelessWidget {
+class ListingsMapScreen extends StatefulWidget {
   final String listingCity;
   ListingsMapScreen(this.listingCity);
 
-  final List<Listing> homeListings = [
-    Listing(
-      name: 'Resurrection Adult Family Home',
-      city: 'Vancouver',
-      address: '10800 NE 109th Ave',
-      rating: '5/5',
-      contact: 5716659250,
-      image: 'assets/images/resurrectionAFH.jpg',
-      availableBeds: 1,
-    ),
-    Listing(
-      name: 'Camas Lily Adult Family Home',
-      city: 'Vancouver',
-      address: '14016 NE 35th Circle, Vancouver, WA 98682',
-      rating: '5/5',
-      contact: 3609103450,
-      image: 'assets/images/camasLilyAFH.jpg',
-      availableBeds: 2,
-    ),
-    Listing(
-      name: 'First Place Adult Family Home',
-      city: 'Vancouver',
-      address: '14731 NE 11th Street, Vancouver, WA 98684',
-      rating: '5/5',
-      contact: 3605139667,
-      image: 'assets/images/firstplaceAFH.jpeg',
-      availableBeds: 6,
-    ),
-    Listing(
-      name: 'Grace Adult Family Home',
-      city: 'Vancouver',
-      address: '15575 NE 11th Street, Vancouver, WA 98684',
-      rating: '5/5',
-      contact: 3605139667,
-      image: 'assets/images/afhStockImage.jpeg',
-      availableBeds: 0,
-    ),
-  ];
+  @override
+  _ListingsMapScreenState createState() => _ListingsMapScreenState();
+}
 
+class _ListingsMapScreenState extends State<ListingsMapScreen> {
   @override
   Widget build(BuildContext context) {
     final mediaQuery = MediaQuery.of(context);
@@ -60,7 +27,7 @@ class ListingsMapScreen extends StatelessWidget {
           Container(
               margin: EdgeInsets.fromLTRB(100, 50, 100, 0), child: TopBar()),
           Container(
-            height: mediaQuery.size.height * 0.8,
+            height: mediaQuery.size.height * 0.8315,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -68,22 +35,22 @@ class ListingsMapScreen extends StatelessWidget {
                   child: Container(
                     margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
                     child: Column(
-                      //crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        //LeftColumn(),
                         Container(
-                          padding: EdgeInsets.fromLTRB(0, 0, 625, 20),
+                          padding: EdgeInsets.fromLTRB(20, 0, 0, 20),
                           child: Text(
                             'Location',
                             textAlign: TextAlign.left,
                             style: TextStyle(
                               color: kPrimaryColor,
                               fontWeight: FontWeight.bold,
-                              fontSize: 25,
+                              fontSize: 30,
                             ),
                           ),
                         ),
                         Container(
+                            padding: EdgeInsets.only(left: 20),
                             height: 70,
                             width: mediaQuery.size.width * 0.4,
                             child: Stack(
@@ -125,7 +92,7 @@ class ListingsMapScreen extends StatelessWidget {
                             )),
                         // mapping homes from data to widgets
                         Container(
-                          margin: EdgeInsets.fromLTRB(70, 0, 0, 0),
+                          margin: EdgeInsets.fromLTRB(0, 0, 0, 0),
                           constraints: BoxConstraints.loose(Size.square(1200)),
                           child: Container(
                             child: Row(
@@ -133,78 +100,22 @@ class ListingsMapScreen extends StatelessWidget {
                                 Expanded(
                                   child: Card(
                                     child: Container(
-                                      height: mediaQuery.size.height * 0.63,
+                                      height: mediaQuery.size.height * 0.67491,
                                       child: SingleChildScrollView(
                                         child: Column(
-                                          children: homeListings.map((ls) {
-                                            return Container(
-                                              width: double.infinity,
-                                              child: Card(
-                                                child: Row(
-                                                  children: [
-                                                    Container(
-                                                        margin:
-                                                            EdgeInsets.all(5.0),
-                                                        width: 270,
-                                                        child: Image.asset(
-                                                            ls.image)),
-                                                    Container(
-                                                      height: 150.0,
-                                                      child: Column(
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Text(
-                                                            ls.name,
-                                                            style: TextStyle(
-                                                                fontSize: 35.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold),
-                                                          ),
-                                                          Text(
-                                                            ls.address,
-                                                            style: TextStyle(
-                                                                fontSize: 20.0),
-                                                          ),
-                                                          Text(
-                                                            ls.availableBeds
-                                                                    .toString() +
-                                                                ' available beds',
-                                                            style: TextStyle(
-                                                                fontSize: 15.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold),
-                                                          ),
-                                                          Text(
-                                                            'Contact: ' +
-                                                                ls.contact
-                                                                    .toString(),
-                                                            style: TextStyle(
-                                                                fontSize: 15.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold),
-                                                          ),
-                                                          Text(
-                                                            'Rating: ' +
-                                                                ls.rating,
-                                                            style: TextStyle(
-                                                                fontSize: 15.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .bold),
-                                                          )
-                                                        ],
-                                                      ),
-                                                    )
-                                                  ],
-                                                ),
-                                              ),
-                                            );
-                                          }).toList(),
+                                          children: LISTED_HOMES
+                                              .map(
+                                                (ls) => MapListing(
+                                                    ls.id,
+                                                    ls.name,
+                                                    ls.address,
+                                                    ls.rating,
+                                                    ls.contact,
+                                                    ls.image,
+                                                    ls.availableBeds,
+                                                    ls.startingPrice),
+                                              )
+                                              .toList(),
                                         ),
                                       ),
                                     ),
@@ -220,16 +131,10 @@ class ListingsMapScreen extends StatelessWidget {
                 ),
                 Expanded(
                     child: Container(
-                  constraints: BoxConstraints.tight(Size(800, 800)),
+                  //color: Colors.blue,
+                  height: mediaQuery.size.height * 0.8,
                   margin: EdgeInsets.fromLTRB(0, 30, 0, 0),
-                  child: Column(
-                    children: [
-                      Text('This is where the Map View will be:'),
-                      Placeholder(
-                        fallbackHeight: mediaQuery.size.height * .75,
-                      ),
-                    ],
-                  ),
+                  child: GoogleMap(),
                 )),
               ],
             ),
