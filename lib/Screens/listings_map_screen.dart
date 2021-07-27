@@ -1,3 +1,4 @@
+import 'package:find_afh/Screens/home_detail_screen.dart';
 import 'package:flutter/material.dart';
 
 import './components/maps.dart';
@@ -98,24 +99,33 @@ class _ListingsMapScreenState extends State<ListingsMapScreen> {
                             child: Row(
                               children: [
                                 Expanded(
-                                  child: Card(
-                                    child: Container(
-                                      height: mediaQuery.size.height * 0.67491,
-                                      child: SingleChildScrollView(
-                                        child: Column(
-                                          children: LISTED_HOMES
-                                              .map(
-                                                (ls) => MapListing(
-                                                    ls.id,
-                                                    ls.name,
-                                                    ls.address,
-                                                    ls.rating,
-                                                    ls.contact,
-                                                    ls.image,
-                                                    ls.availableBeds,
-                                                    ls.startingPrice),
-                                              )
-                                              .toList(),
+                                  child: GestureDetector(
+                                    onTap: () => {
+                                      Navigator.of(context)
+                                          .push(MaterialPageRoute(builder: (_) {
+                                        return HomeDetailScreen();
+                                      }))
+                                    },
+                                    child: Card(
+                                      child: Container(
+                                        height:
+                                            mediaQuery.size.height * 0.67491,
+                                        child: SingleChildScrollView(
+                                          child: Column(
+                                            children: LISTED_HOMES
+                                                .map(
+                                                  (ls) => MapListing(
+                                                      ls.id,
+                                                      ls.name,
+                                                      ls.address,
+                                                      ls.rating,
+                                                      ls.contact,
+                                                      ls.image,
+                                                      ls.availableBeds,
+                                                      ls.startingPrice),
+                                                )
+                                                .toList(),
+                                          ),
                                         ),
                                       ),
                                     ),
