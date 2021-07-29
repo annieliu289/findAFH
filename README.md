@@ -1,6 +1,6 @@
 # find_afh
 
-A new Flutter project.
+A full-stack web application project for Team 12, InternHacks 2021.
 
 ## Getting Started
 
